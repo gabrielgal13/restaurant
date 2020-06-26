@@ -78,12 +78,12 @@ public class Entry extends AppCompatActivity {
         for (Food food : foodList) {
             if (categoryHashMap.get(food.getCategory())==null){
                 Category category = new Category();
-                category.getCategorySet().add(food);
+                category.getCategoryList().add(food);
                 category.setCategoryName(food.getCategory());
                 category.setPic(food.getPic());
                 categoryHashMap.put(food.getCategory(), category);
             }else {
-                Objects.requireNonNull(categoryHashMap.get(food.getCategory())).getCategorySet().add(food);
+                Objects.requireNonNull(categoryHashMap.get(food.getCategory())).getCategoryList().add(food);
                 Objects.requireNonNull(categoryHashMap.get(food.getCategory())).setCategoryName(food.getCategory());
                 Objects.requireNonNull(categoryHashMap.get(food.getCategory())).setPic(food.getPic());
             }

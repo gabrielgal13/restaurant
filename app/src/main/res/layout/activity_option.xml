@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				xmlns:app="http://schemas.android.com/apk/res-auto"
+				xmlns:tools="http://schemas.android.com/tools"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:background="@color/cardview_dark_background"
+				app:layout_behavior="@string/appbar_scrolling_view_behavior"
+				tools:context=".ui.Option">
+	
+	<androidx.recyclerview.widget.RecyclerView
+			android:id="@+id/optionRecycler"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="1dp"
+			app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="1dp" android:layout_marginEnd="1dp"
+			app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+			android:layout_marginBottom="1dp"/>
+	<TextView
+			android:text="@string/total_0"
+			android:background="@color/album_title"
+			android:layout_width="match_parent"
+			android:layout_height="33dp" android:id="@+id/total" android:layout_alignParentBottom="true"
+			android:layout_marginBottom="0dp"/>
+
+
+</RelativeLayout>

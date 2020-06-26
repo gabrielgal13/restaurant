@@ -4,8 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
 
 
 @Setter
@@ -13,6 +12,6 @@ import java.util.Set;
 @NoArgsConstructor
 public class Category {
     String categoryName;
-    Set <Food> categorySet = new HashSet<>();
+    ArrayList <Food> categoryList = new ArrayList<>();
     String pic;
 }
