@@ -1,0 +1,18 @@
+<resources>
+	<string name="app_name">Napoli Restaurant</string>
+	<string name="intro">Italian Food</string>
+	<string name="textTag">The Best Italian Flavor!</string>
+	<string name="robotPic">robotPic</string>
+	<string name="description">Description</string>
+	<string name="robotType">Endoskeletons – T-700</string>
+	<string name="season">Summer</string>
+	<string name="robotDescription">The icon of the franchise, besides Arnold Schwarzenegger in sunglasses.
+		Endoskeletons were an instant creepy classic since their introduction. With a look that’s both a throwback to
+		walking-skeleton ghost stories and an echo of future mechanization fears, they strike a primal nerve. However,
+		in the future war, they’re basically cannon fodder.
+	</string>
+	<string name="logoRobot">TODO</string>
+	<string name="changeRobot">Select</string>
+	<string name="select_your_robot">Select Your Robot</string>
+	<string name="title">Title</string>
+</resources>

@@ -1,0 +1,176 @@
+[
+  {
+    "id": 0,
+    "category": "Antipasti",
+    "title": "Arancini",
+    "pic": "img/antipasti/arancini.png",
+    "price": 5,
+    "description": "Beautiful Arancinis with the best italian cheese"
+  },
+
+  {
+    "id": 1,
+    "category": "Antipasti",
+    "title": "Calamaru Friti",
+    "pic": "img/antipasti/calamarifriti.png",
+    "price": 7,
+    "description": "Beautiful calamari friti cooked perfectly"
+  },
+
+  {
+    "id": 2,
+    "category": "Antipasti",
+    "title": "Charcuteri",
+    "pic": "img/antipasti/charcuteri.png",
+    "price": 11,
+    "description": "Best selection of Italian han and cheese"
+  },
+
+  {
+    "id": 3,
+    "category": "Dessert",
+    "title": "Cannoli",
+    "pic": "img/dessert/cannoli.png",
+    "price": 9,
+    "description": "Best selection of Nutella Cannoli"
+  },
+
+  {
+    "id": 4,
+    "category": "Dessert",
+    "title": "Fromage Cake",
+    "pic": "img/dessert/fromage.png",
+    "price": 9,
+    "description": "Best authentic italian cheese cake"
+  },
+
+  {
+    "id": 5,
+    "category": "Dessert",
+    "title": "Tiramisu",
+    "pic": "img/dessert/tiramisu.png",
+    "price": 9,
+    "description": "Best authentic italian Tiramisu"
+  },
+
+  {
+    "id": 6,
+    "category": "Pasta",
+    "title": "Pasta Alfredo",
+    "pic": "img/pasta/alfredo.png",
+    "price": 14,
+    "description": "Best authentic Alfredo Pasta"
+  },
+
+  {
+    "id": 7,
+    "category": "Pasta",
+    "title": "Pasta Carbonara",
+    "pic": "img/pasta/carbonara.png",
+    "price": 14,
+    "description": "Best authentic Carbonara Pasta"
+  },
+
+  {
+    "id": 8,
+    "category": "Pasta",
+    "title": "Pasta Pesto",
+    "pic": "img/pasta/pesto.png",
+    "price": 13,
+    "description": "Best authentic Pesto Pasta"
+  },
+
+  {
+    "id": 9,
+    "category": "Pasta",
+    "title": "Pasta Rose",
+    "pic": "img/pasta/rose.png",
+    "price": 15,
+    "description": "Best authentic Rose Pasta"
+  },
+
+  {
+    "id": 10,
+    "category": "Pasta",
+    "title": "Pasta Tomato",
+    "pic": "img/pasta/tomato.png",
+    "price": 15,
+    "description": "Best authentic Tomato Pasta"
+  },
+
+  {
+    "id": 11,
+    "category": "Pizza",
+    "title": "Pizza Carciofi Olive",
+    "pic": "img/pizza/carciofiolive.png",
+    "price": 17,
+    "description": "Best authentic Pasta Olive"
+  },
+
+  {
+    "id": 12,
+    "category": "Pizza",
+    "title": "Pizza Gorgonzola",
+    "pic": "img/pizza/gorgonzola.png",
+    "price": 16,
+    "description": "Best authentic Gorgonzola"
+  },
+
+  {
+    "id": 13,
+    "category": "Pizza",
+    "title": "Pizza Margarita",
+    "pic": "img/pizza/margarita.png",
+    "price": 16,
+    "description": "Best authentic Pizza Margarita"
+  },
+
+  {
+    "id": 14,
+    "category": "Pizza",
+    "title": "Pizza Peperoni",
+    "pic": "img/pizza/peperoni.png",
+    "price": 22,
+    "description": "Best authentic Pizza Peperoni"
+  },
+
+  {
+    "id": 16,
+    "category": "Salads",
+    "title": "Arangula",
+    "pic": "img/salads/arangula.png",
+    "price": 6,
+    "description": "Best authentic Arangula Salad"
+  },
+
+  {
+    "id": 17,
+    "category": "Salads",
+    "title": "Cesar",
+    "pic": "img/salads/cesar.png",
+    "price": 8,
+    "description": "It is not italian but you can order"
+  },
+
+  {
+    "id": 18,
+    "category": "Salads",
+    "title": "Fiordilatte",
+    "pic": "img/salads/fiordilatte.png",
+    "price": 9,
+    "description": "Authentic Italian Salad, omg"
+  },
+
+  {
+    "id": 18,
+    "category": "Salads",
+    "title": "Olives",
+    "pic": "img/salads/olives.png",
+    "price": 11,
+    "description": "Authentic Italian Salad with black olives"
+  }
+
+
+
+
+]
