@@ -20,4 +20,5 @@ public class Food implements Serializable {
     private String pic;
     private double price;
     private String description;
+    private Integer quantity = 0;
 }

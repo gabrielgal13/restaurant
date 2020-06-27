@@ -1,6 +1,7 @@
 package com.lucas.restaurante.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -55,6 +57,17 @@ public  class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolde
         }
         Bitmap bitmap = BitmapFactory.decodeStream(is);
         holder.thumbnail.setImageBitmap(bitmap);
+
+        Food food = foodList.get(position);
+
+        holder.option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ct, Detail.class);
+                intent.putExtra("food", food);
+                ct.startActivity(intent);
+            }
+        });
     }
     @Override
     public int getItemCount() {
@@ -65,11 +78,13 @@ public  class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolde
 
         TextView description;
         ImageView thumbnail;
+        LinearLayout option;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             description = itemView.findViewById(R.id.title);
             thumbnail = itemView.findViewById(R.id.thumbnail);
+            option = itemView.findViewById(R.id.rowOptionLayout);
 
         }
     }

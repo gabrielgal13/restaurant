@@ -17,11 +17,7 @@ import java.util.Set;
 
 public class Option extends AppCompatActivity {
 
-
-    RecyclerView recOpt;
-
-
-
+    private RecyclerView recOpt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +30,6 @@ public class Option extends AppCompatActivity {
         OptionAdapter optionAdapter = new OptionAdapter(this, foodList);
         recOpt.setAdapter(optionAdapter);
         recOpt.setLayoutManager(new LinearLayoutManager(this));
-
-
-
     }
 
 
