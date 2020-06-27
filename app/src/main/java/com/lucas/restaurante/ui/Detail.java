@@ -70,15 +70,21 @@ public class Detail extends AppCompatActivity {
     }
 
     public void onClickAdd(View view) {
-        Integer number = Integer.parseInt(quantity.getText().toString());
-        Food newFood = new Food();
-        newFood.setId(this.food.getId());
-        newFood.setTitle(this.food.getTitle());
-        newFood.setDescription(this.food.getDescription());
-        newFood.setPrice(this.food.getPrice());
-        newFood.setPic(this.food.getPic());
-        newFood.setCategory(this.food.getCategory());
-        newFood.setQuantity(number);
-        SingletonPurchaseList.getInstance().addToArray(newFood);
+            Integer number = 0;
+        try {
+            number = Integer.parseInt(quantity.getText().toString());
+            Food newFood = new Food();
+            newFood.setId(this.food.getId());
+            newFood.setTitle(this.food.getTitle());
+            newFood.setDescription(this.food.getDescription());
+            newFood.setPrice(this.food.getPrice());
+            newFood.setPic(this.food.getPic());
+            newFood.setCategory(this.food.getCategory());
+            newFood.setQuantity(number);
+            SingletonPurchaseList.getInstance().addToArray(newFood);
+        }catch (Exception ex) {
+            Toast.makeText(Detail.this, "Remember lowe numbers", Toast.LENGTH_SHORT).show();
+        }
+        Toast.makeText(Detail.this, number + " items has been added", Toast.LENGTH_SHORT).show();
     }
 }
