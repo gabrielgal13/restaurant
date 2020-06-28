@@ -2,11 +2,11 @@ package com.lucas.restaurante.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Parcelable;
-import android.text.Layout;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,33 +15,34 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
+
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.lucas.restaurante.R;
 import com.lucas.restaurante.dao.Category;
-import com.lucas.restaurante.dao.Food;
+import com.lucas.restaurante.storage.StateElementsManager;
 
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Type;
 import java.util.*;
 
-public  class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder>  {
+public  class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.ViewHolder>  {
 
-    Context ct;
-    HashMap<String, Category> categoryHashMap;
+    private Context ct;
+    private List<Category> categoryList;
 
 
-    public CategoryAdapter(Context ct, HashMap<String, Category> categoryHashMap) {
+    public EntryAdapter(Context ct) {
         this.ct = ct;
-        this.categoryHashMap = categoryHashMap;
+        this.categoryList = (List<Category>) StateElementsManager.loadState(ct, "catList");
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context;
         LayoutInflater inflater = LayoutInflater.from(ct);
         View view = inflater.inflate(R.layout.food_row, parent, false);
         return new ViewHolder(view);
@@ -50,30 +51,23 @@ public  class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewH
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Set entry = categoryHashMap.keySet();
-        ArrayList<String> list = new ArrayList<>();
-        for (Object o : entry) {
-            list.add(o.toString());
-        }
-        holder.description.setText(Objects.requireNonNull(categoryHashMap.get(list.get(position))).getCategoryName());
+
+        holder.description.setText((categoryList.get(position)).getCategoryName());
         AssetManager assetManager = ct.getAssets();
         InputStream is = null;
         try {
-            is = assetManager.open(Objects.requireNonNull(categoryHashMap.get(list.get(position))).getPic());
+            is = assetManager.open(Objects.requireNonNull((categoryList.get(position)).getPic()));
         } catch (IOException e) {
             Toast.makeText(this.ct, "Problems with the image", Toast.LENGTH_SHORT).show();
         }
         Bitmap bitmap = BitmapFactory.decodeStream(is);
         holder.thumbnail.setImageBitmap(bitmap);
 
-        ArrayList foodList = Objects.requireNonNull(Objects.requireNonNull(categoryHashMap.get(list.get(position))).getCategoryList());
-
         holder.rowLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(ct, Option.class);
-                intent.putExtra("foodList", foodList);
+                intent.putExtra("category", position);
                 ct.startActivity(intent);
             }
         });
@@ -81,7 +75,7 @@ public  class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewH
     }
     @Override
     public int getItemCount() {
-        return categoryHashMap.size();
+        return categoryList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -95,7 +89,6 @@ public  class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewH
             description = itemView.findViewById(R.id.title);
             thumbnail = itemView.findViewById(R.id.thumbnail);
             rowLayout = itemView.findViewById(R.id.foodRowLayout);
-
         }
     }
 }

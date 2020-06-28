@@ -1,20 +1,13 @@
 package com.lucas.restaurante.ui;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.lucas.restaurante.R;
 import com.lucas.restaurante.dao.Category;
 import com.lucas.restaurante.dao.Food;
+import com.lucas.restaurante.storage.StateElementsManager;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,22 +15,22 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Objects;
+import java.util.*;
 
-public class Entry extends AppCompatActivity {
+public class Entry extends AppCompatActivity implements StateElementsManager {
 
     private RecyclerView recCat;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entry);
 
+        organizer(load());
         recCat = this.findViewById(R.id.categoryRecycler);
-        CategoryAdapter foodAdapter = new CategoryAdapter(this, organizer(load()));
+        EntryAdapter foodAdapter = new EntryAdapter(this);
         recCat.setAdapter(foodAdapter);
         recCat.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -73,7 +66,7 @@ public class Entry extends AppCompatActivity {
         return foodList;
     }
 
-    public HashMap<String, Category> organizer (ArrayList<Food> foodList) {
+    public void organizer (ArrayList<Food> foodList) {
         HashMap<String, Category> categoryHashMap= new HashMap<String, Category>();
         for (Food food : foodList) {
             if (categoryHashMap.get(food.getCategory())==null){
@@ -88,13 +81,7 @@ public class Entry extends AppCompatActivity {
                 Objects.requireNonNull(categoryHashMap.get(food.getCategory())).setPic(food.getPic());
             }
         }
-        return categoryHashMap;
+        ArrayList<Category> categoryList = new ArrayList<>(categoryHashMap.values());
+        StateElementsManager.saveState(this, categoryList, "catList");
     }
-
-
-
-
-
-
-
 }

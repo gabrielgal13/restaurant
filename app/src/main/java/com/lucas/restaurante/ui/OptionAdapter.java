@@ -2,6 +2,7 @@ package com.lucas.restaurante.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,24 +15,31 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.lucas.restaurante.R;
 import com.lucas.restaurante.dao.Category;
 import com.lucas.restaurante.dao.Food;
+import com.lucas.restaurante.storage.StateElementsManager;
 
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Type;
 import java.util.*;
 
 public  class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder>  {
 
     Context ct;
     ArrayList<Food> foodList;
+    Integer catPos;
 
 
-    public OptionAdapter(Context ct, ArrayList<Food> foodList) {
+    public OptionAdapter(Context ct, Integer position) {
         this.ct = ct;
-        this.foodList = foodList;
+        ArrayList<Category> catList = (ArrayList<Category>) StateElementsManager.loadState(ct, "catList");
+        this.catPos = position;
+        this.foodList = catList.get(position).getCategoryList();
     }
 
     @NonNull
@@ -65,6 +73,7 @@ public  class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolde
             public void onClick(View v) {
                 Intent intent = new Intent(ct, Detail.class);
                 intent.putExtra("food", food);
+                intent.putExtra("foodPos", catPos);
                 ct.startActivity(intent);
             }
         });
@@ -88,4 +97,5 @@ public  class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolde
 
         }
     }
+
 }

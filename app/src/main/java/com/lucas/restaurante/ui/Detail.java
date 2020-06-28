@@ -1,6 +1,7 @@
 package com.lucas.restaurante.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.textfield.TextInputEditText;
 import com.lucas.restaurante.MainActivity;
 import com.lucas.restaurante.R;
@@ -32,6 +34,7 @@ public class Detail extends AppCompatActivity {
     private EditText quantity;
 
     private Food food;
+    private Integer foodPos;
 
 
     @Override
@@ -40,6 +43,8 @@ public class Detail extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         food = (Food)getIntent().getSerializableExtra("food");
+        foodPos = getIntent().getIntExtra("foodPos", 1);
+
 
 
 
@@ -83,8 +88,13 @@ public class Detail extends AppCompatActivity {
             newFood.setQuantity(number);
             SingletonPurchaseList.getInstance().addToArray(newFood);
         }catch (Exception ex) {
-            Toast.makeText(Detail.this, "Remember lowe numbers", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Detail.this, "Remember lower numbers", Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(Detail.this, number + " items has been added", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, number + " items has been added", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(Detail.this, Option.class);
+        intent.putExtra("category", foodPos);
+        this.startActivity(intent);
     }
+
+
 }
