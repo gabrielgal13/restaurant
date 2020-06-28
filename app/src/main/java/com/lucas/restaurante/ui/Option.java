@@ -1,22 +1,19 @@
 package com.lucas.restaurante.ui;
 
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
+import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+
 import com.lucas.restaurante.R;
-import com.lucas.restaurante.dao.Category;
+
 import com.lucas.restaurante.dao.Food;
-import com.lucas.restaurante.storage.StateElementsManager;
 
 
-import java.lang.reflect.Type;
+
+
 import java.util.ArrayList;
 
 
@@ -36,6 +33,13 @@ public class Option extends AppCompatActivity {
         OptionAdapter optionAdapter = new OptionAdapter(this, position);
         recOpt.setAdapter(optionAdapter);
         recOpt.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Option.this, Entry.class);
+        this.startActivity(intent);
     }
 
 

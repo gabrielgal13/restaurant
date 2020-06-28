@@ -18,6 +18,7 @@ import com.lucas.restaurante.MainActivity;
 import com.lucas.restaurante.R;
 import com.lucas.restaurante.dao.Food;
 import com.lucas.restaurante.dao.SingletonPurchaseList;
+import com.lucas.restaurante.storage.StateElementsManager;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -45,9 +46,6 @@ public class Detail extends AppCompatActivity {
         food = (Food)getIntent().getSerializableExtra("food");
         foodPos = getIntent().getIntExtra("foodPos", 1);
 
-
-
-
         img = findViewById(R.id.thumbnail);
         title = findViewById(R.id.title);
         description = findViewById(R.id.descDetail);
@@ -71,7 +69,6 @@ public class Detail extends AppCompatActivity {
         title.setText(food.getTitle());
         description.setText(food.getDescription());
         price.setText(String.valueOf(food.getPrice()));
-
     }
 
     public void onClickAdd(View view) {
@@ -86,7 +83,7 @@ public class Detail extends AppCompatActivity {
             newFood.setPic(this.food.getPic());
             newFood.setCategory(this.food.getCategory());
             newFood.setQuantity(number);
-            SingletonPurchaseList.getInstance().addToArray(newFood);
+            SingletonPurchaseList.getInstance(this).addToArray(newFood, this);
         }catch (Exception ex) {
             Toast.makeText(Detail.this, "Remember lower numbers", Toast.LENGTH_SHORT).show();
         }
@@ -94,7 +91,19 @@ public class Detail extends AppCompatActivity {
         Intent intent = new Intent(Detail.this, Option.class);
         intent.putExtra("category", foodPos);
         this.startActivity(intent);
+        SingletonPurchaseList.getInstance(this).cleanArray(this);
+
+        for (Food food1 : SingletonPurchaseList.getInstance(this).getArray()) {
+            Toast.makeText(this, food1.getQuantity()+"  " + food1.getTitle()  , Toast.LENGTH_SHORT).show();
+
+        }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Detail.this, Option.class);
+        intent.putExtra("category", foodPos);
+        this.startActivity(intent);
+        super.onBackPressed();
+    }
 }

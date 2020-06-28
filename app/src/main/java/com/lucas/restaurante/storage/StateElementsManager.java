@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.lucas.restaurante.dao.Category;
+import com.lucas.restaurante.dao.Food;
 
 
 import java.lang.reflect.Type;
@@ -32,5 +33,17 @@ public interface StateElementsManager {
         catList = gson.fromJson(json, type);
         return catList;
     }
+
+    static Object loadState(Context ct, String location, Boolean food) {
+        Object catList = new Object();
+        SharedPreferences sharedPreferences = ct.getSharedPreferences("shared preferences", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString(location, null);
+        Type type = new TypeToken<ArrayList<Food>>() {}.getType();
+        catList = gson.fromJson(json, type);
+        return catList;
+    }
+
+
 
 }
