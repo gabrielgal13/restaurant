@@ -1,8 +1,7 @@
-package com.lucas.restaurante.ui;
+package com.lucas.restaurante.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,17 +14,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.lucas.restaurante.R;
 import com.lucas.restaurante.dao.Category;
 import com.lucas.restaurante.dao.Food;
 import com.lucas.restaurante.storage.StateElementsManager;
+import com.lucas.restaurante.ui.Detail;
 
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Type;
 import java.util.*;
 
 public  class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder>  {

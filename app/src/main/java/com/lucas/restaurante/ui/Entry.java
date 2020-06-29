@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.lucas.restaurante.R;
+import com.lucas.restaurante.adapters.EntryAdapter;
 import com.lucas.restaurante.dao.Category;
 import com.lucas.restaurante.dao.Food;
 import com.lucas.restaurante.storage.StateElementsManager;

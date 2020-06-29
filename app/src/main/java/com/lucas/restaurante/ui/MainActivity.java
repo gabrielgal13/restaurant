@@ -1,4 +1,4 @@
-package com.lucas.restaurante;
+package com.lucas.restaurante.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.lucas.restaurante.ui.Entry;
+import com.lucas.restaurante.R;
 
 public class MainActivity extends AppCompatActivity {
 

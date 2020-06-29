@@ -12,18 +12,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.lifecycle.ViewModelProvider;
-import com.google.android.material.textfield.TextInputEditText;
-import com.lucas.restaurante.MainActivity;
 import com.lucas.restaurante.R;
 import com.lucas.restaurante.dao.Food;
 import com.lucas.restaurante.dao.SingletonPurchaseList;
-import com.lucas.restaurante.storage.StateElementsManager;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
-import java.util.stream.Collectors;
 
 public class Detail extends AppCompatActivity {
 

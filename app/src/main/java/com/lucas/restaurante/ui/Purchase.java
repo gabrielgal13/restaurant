@@ -7,11 +7,8 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.lucas.restaurante.R;
-import com.lucas.restaurante.dao.Food;
+import com.lucas.restaurante.adapters.PurchaseAdapter;
 import com.lucas.restaurante.dao.SingletonPurchaseList;
-
-import java.util.*;
-import java.util.stream.Collectors;
 
 public class Purchase extends AppCompatActivity {
 

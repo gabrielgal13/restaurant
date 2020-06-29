@@ -2,17 +2,16 @@ package com.lucas.restaurante.ui;
 
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.lucas.restaurante.R;
+import com.lucas.restaurante.adapters.OptionAdapter;
 import com.lucas.restaurante.dao.SingletonPurchaseList;
-import org.w3c.dom.Text;
 
 public class Option extends AppCompatActivity {
 
