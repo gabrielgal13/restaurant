@@ -26,7 +26,6 @@ import com.lucas.restaurante.storage.StateElementsManager;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Type;
 import java.util.*;
 
 public  class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.ViewHolder>  {

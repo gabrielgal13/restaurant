@@ -35,6 +35,10 @@ public class Entry extends AppCompatActivity implements StateElementsManager {
         recCat.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    public void onBackPressed() {
+        finishAffinity();
+    }
+
     public ArrayList<Food>  load() {
         String json;
         ArrayList<Food> foodList = new ArrayList<>();

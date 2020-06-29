@@ -22,9 +22,8 @@ import com.lucas.restaurante.storage.StateElementsManager;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Detail extends AppCompatActivity {
 
@@ -91,12 +90,7 @@ public class Detail extends AppCompatActivity {
         Intent intent = new Intent(Detail.this, Option.class);
         intent.putExtra("category", foodPos);
         this.startActivity(intent);
-        SingletonPurchaseList.getInstance(this).cleanArray(this);
 
-        for (Food food1 : SingletonPurchaseList.getInstance(this).getArray()) {
-            Toast.makeText(this, food1.getQuantity()+"  " + food1.getTitle()  , Toast.LENGTH_SHORT).show();
-
-        }
     }
 
     @Override

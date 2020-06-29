@@ -2,25 +2,24 @@ package com.lucas.restaurante.ui;
 
 
 import android.content.Intent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lucas.restaurante.R;
-
-import com.lucas.restaurante.dao.Food;
-
-
-
-
-import java.util.ArrayList;
-
+import com.lucas.restaurante.dao.SingletonPurchaseList;
+import org.w3c.dom.Text;
 
 public class Option extends AppCompatActivity {
 
     private RecyclerView recOpt;
-    private ArrayList<Food> foodList;
+    TextView total;
+    Button cart;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +32,13 @@ public class Option extends AppCompatActivity {
         OptionAdapter optionAdapter = new OptionAdapter(this, position);
         recOpt.setAdapter(optionAdapter);
         recOpt.setLayoutManager(new LinearLayoutManager(this));
+
+        cart = findViewById(R.id.cart);
+        total = findViewById(R.id.total);
+
+        cart.setText("See Cart "+"("+SingletonPurchaseList.getInstance(this).getCount()+")");
+        total.setText("Total: "+ SingletonPurchaseList.getInstance(this).getSum());
+
     }
 
     @Override
@@ -43,5 +49,9 @@ public class Option extends AppCompatActivity {
     }
 
 
-
+    public void onClickCart(View view) {
+        super.onBackPressed();
+        Intent intent = new Intent(Option.this, Purchase.class);
+        this.startActivity(intent);
+    }
 }

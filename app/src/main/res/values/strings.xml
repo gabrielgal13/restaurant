@@ -20,4 +20,11 @@
 	<string name="description">Description</string>
 	<string name="zero">0</string>
 	<string name="enter_quantity">Enter Quantity</string>
+	<string name="item">Item</string>
+	<string name="qty">Qty</string>
+	<string name="usd">USD</string>
+	<string name="total">Total</string>
+	<string name="todo">TODO</string>
+	<string name="clear">Clear</string>
+	<string name="see_cart">See Cart</string>
 </resources>

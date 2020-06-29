@@ -8,6 +8,7 @@ import com.lucas.restaurante.dao.Category;
 import com.lucas.restaurante.dao.Food;
 
 
+import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -43,7 +44,4 @@ public interface StateElementsManager {
         catList = gson.fromJson(json, type);
         return catList;
     }
-
-
-
 }
